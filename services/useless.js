@@ -10,7 +10,17 @@ exports.delUseless = tree => {
         path.node.body.body.forEach(n => {
           let varName = getVarName(n)
           if (varName) {
-            
+            let count = 0
+            path.traverse({
+              Identifier(path){
+                if(path.node.name===varName){
+                  count++
+                }
+              }
+            })
+            if(count>1){
+              
+            }
           }
         })
       }
